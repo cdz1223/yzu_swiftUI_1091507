@@ -8,10 +8,10 @@
 
 <tr>
 <td>
-  ```swift
+```swift
   import SwiftUI
 
-struct ContentView: View {
+  struct ContentView: View {
     var body: some View {
         Text("Student ID :1091507 \nName:曹東震")
             .fontWeight(.light)
@@ -29,7 +29,7 @@ struct ContentView: View {
                 .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height:280, alignment: .bottom)
                 .font(.system(size:50))
                 .opacity(0.😎
-       )
+         )
                Text("考研戰士 啟動!")
                     .fontWeight(.heavy)
                     
@@ -39,10 +39,10 @@ struct ContentView: View {
                     .opacity(0.😎
                 
         
-    }
-}
+      }
+  }
   
-  ```
+```
 </td>
   
 </tr>
