@@ -5,6 +5,8 @@
         <img src="hw1.jpg">
       </td>
   </tr>
+  
+</table>
 
   <tr>
     <td>
@@ -22,5 +24,3 @@ cond(no)->sub1(right)->op
     </td>
   
   </tr>
-  
-</table>
