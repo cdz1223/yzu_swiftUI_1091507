@@ -6,7 +6,6 @@
       </td>
   </tr>
   
-</table>
 
 ```swift
 import SwiftUI
@@ -42,3 +41,4 @@ struct ContentView: View {
     }
 }
 ```
+</table>
