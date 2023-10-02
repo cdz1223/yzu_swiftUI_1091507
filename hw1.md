@@ -2,7 +2,7 @@
 <table>
   <tr>
       <td>
-        <img src="https://github.com/cdz1223/yzu_swiftUI_1091507/main/hw1.jpg">
+        <img src="hw1.jpg">
       </td>
   </tr>
 
