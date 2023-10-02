@@ -8,7 +8,7 @@
   
 </table>
 
-```
+```swift
 import SwiftUI
 
 struct ContentView: View {
@@ -28,7 +28,7 @@ struct ContentView: View {
                 .foregroundColor(.red)
                 .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height:280, alignment: .bottom)
                 .font(.system(size:50))
-                .opacity(0.😎
+                .opacity(0.8)
        )
                Text("考研戰士 啟動!")
                     .fontWeight(.heavy)
@@ -36,7 +36,7 @@ struct ContentView: View {
                     .frame(width: 200, height: 30, alignment: .center)
                     .background(.gray.opacity(0.3))
                     .cornerRadius(20, antialiased:true)
-                    .opacity(0.😎
+                    .opacity(0.8)
                 
         
     }
