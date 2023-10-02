@@ -8,8 +8,6 @@
   
 </table>
 
-  <tr>
-    <td>
       ```flow
 st=>start: 开始框
 op=>operation: 处理框
@@ -21,6 +19,3 @@ st(right)->op(right)->cond
 cond(yes)->io(bottom)->e
 cond(no)->sub1(right)->op
 ```
-    </td>
-  
-  </tr>
