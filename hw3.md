@@ -2,7 +2,7 @@
 <table>
   <tr>
       <td>
-        <img src="hw3.jpg">
+        <img src="hw3.jpeg">
       </td>
   </tr>
   
