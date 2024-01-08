@@ -133,4 +133,136 @@ struct ContentView: View {
     }
 
 ```
+
+
+
+<h1>HW4—WelcomeView</h1> 
+
+```swift
+
+import SwiftUI
+
+struct WelcomeView: View{
+    var body: some View{
+       // Image("g-idle")
+         //   .resizable()
+           // .aspectRatio(contentMode: .fit)
+        VStack{
+            Image("Gidle")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            Text("G-(idle)")
+                .fontWeight(.heavy)
+                .lineSpacing(20)
+                .font(.system(size:32.0))
+                .foregroundColor(.white)
+                .frame(width: 350,height: 50,alignment: .center)
+                .background(Color.pink)
+                .cornerRadius(20)
+                .multilineTextAlignment(.center)
+        }
+    }
+}
+
+
+```
+
+<h1>HW4—ScrollView</h1> 
+
+```swift
+
+import SwiftUI
+struct CardView: View {
+    var img:String
+    var Option:String
+    var NameUS:String
+    var NameCN:String
+    
+    var body: some View{
+        VStack{
+            Image(img)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            VStack(alignment: .leading, content: {
+                Text(Option)
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
+                Text(NameUS)
+                    .font(.title)
+                    .fontWeight(.black)
+                    .foregroundStyle(.primary)
+                Text(NameCN)
+                    .font(.caption)
+                    .foregroundColor(.purple)
+            })    
+            .frame(minWidth:0,idealWidth: 100,maxHeight: .infinity,alignment: .center)
+            .padding(.leading,15)
+            .padding(.bottom,10)
+        }
+        .background(Color(red:255/255,green: 100/255,blue:153/255))
+        .clipShape(.rect(cornerRadius: 20))
+        .overlay( 
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.gray,lineWidth: 2)
+        )
+        .padding(.all,10)
+    }
+}
+
+
+
+```
+
+<h1>HW4—CardsView</h1> 
+
+```swift
+
+import SwiftUI
+
+struct CardStruct : Identifiable{
+    var id = UUID()
+    var term:String
+    var description:String
+} 
+var card = [
+    CardStruct(term:"TEST1",description: "A"),
+    CardStruct(term: "TEST2", description: "B"),
+    CardStruct(term:"TEST3",description:"C")
+]
+
+struct TAPCardView: View{
+    @State var current = 0 
+    var body: some View{
+        VStack{
+            VStack{
+                Text(card[current].term)
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .padding(.all,10)
+                
+                Text(card[current].description)
+                    .font(.body)
+                    .padding(.all,10)
+            }
+            .frame(minWidth: 0,idealWidth:100,maxWidth: 300,
+                   minHeight: 0,idealHeight: 100,maxHeight: 300,alignment: .center)
+            .background(Color.gray)
+            .cornerRadius(20)
+            .onTapGesture{
+                if current<card.count-1{
+                    current+=1
+                }else{
+                    current=0
+                }
+            }
+            Text("Tap to Next...")
+                .padding(.all,10)
+        }
+        
+    }
+} 
+
+
+```
+
+
 </table>
