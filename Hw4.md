@@ -1,77 +1,133 @@
-<h1>HW3</h1>
+<h1>HW4—contentView</h1> 
 <table>
   <tr>
       <td>
-        <img src="hw3.jpeg">
+        <img src="hw4-1.jpeg">
+        <img src="hw4-2.jpeg">
+        <img src="hw4-3.jpeg">
+        <img src="hw4-4.jpeg">
       </td>
   </tr>
   
 
 ```swift
-import SwiftUI
-// future for HW3
-struct nameView: View{
+  import SwiftUI
+struct Gidle :Identifiable{
+    var id = UUID()
+    var img:String
+    var opt:String
+    var NameUS:String
+    var NameCN:String
+}
+struct page3 :Identifiable{
+    var id = UUID()
+    var name:String
+    var img:String
+}
+var Heat = [
+    Gidle(img:"Soyeon",opt:"(G)-idle 2023 EP [Heat]", NameUS:"Soyeon",NameCN:"小娟"),
+    Gidle(img:"Miyeon",opt:"(G)-idle 2023 EP [Heat]", NameUS:"Miyeon",NameCN:"薇娟"),
+    Gidle(img:"Minnie",opt:"(G)-idle 2023 EP [Heat]", NameUS:"Minnie",NameCN:"米妮"),
+    Gidle(img:"Yuqi",opt:"(G)-idle 2023 EP [Heat]", NameUS:"Yuqi",NameCN:"雨琦"),
+    Gidle(img:"Shuhua",opt:"(G)-idle 2023 EP [Heat]", NameUS:"Shuhua",NameCN:"舒華"),
+    
+]
+
+var album = [
+    page3(name: "2018: <I am>", img: "Iam"),
+    page3(name: "2019: <I made>", img: "Imade"),
+    page3(name: "2020: <I trust>", img: "Itrust"),
+    page3(name: "2021: <I burn>", img: "Iburn"),
+    page3(name: "2022: <I love>", img: "Ilove"),
+    page3(name: "2022: <I NEVER DIE>", img: "Ineverdie"),
+    page3(name: "2023: <I feel>", img: "Ifeel")
+]
+
+struct BasicImageRow: View{
+    var thisalbum:page3
     var body: some View{
-        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 2) {
-            Text("1091507的模型櫃").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+        HStack{
+            Image(thisalbum.img)
+                .resizable()
+                .frame(width: 40,height: 40)
+                .cornerRadius(5)
+            Text(thisalbum.name)
         }
-        
+    }
+}
+struct ListDetail:View{
+    var thisalbum:page3
+    var body: some View{
+        VStack{
+            Image(thisalbum.img)
+                .resizable()
+                //.frame(width: 40,height: 40)
+                .aspectRatio(contentMode: .fit)
+                //.cornerRadius(5)
+                .clipped()
+            Text(thisalbum.name)
+                .font(.system(.title, design: .rounded))
+                .fontWeight(.black)
+            Spacer()
+        }
     }
 }
 
-struct HandView: View{
-    var imgName:String
-    var tit:String
-    var body: some View{
-        ZStack{
-            VStack{
-                
-                Image(imgName)
-                    .resizable()
-                    .aspectRatio( contentMode:.fit)
-                    .frame(width:200 ,height: 120,alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .frame(minWidth: 0, idealWidth: 500, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 200, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                
-            }
-            Text(tit)
-                .font(.system(size:10))
-                .foregroundColor(.yellow)
-                .padding(.all,5)
-                .background(Color.black)
-                .opacity(0.7)
-                .offset(x:0,y:50)
-                
-        }
-    }
-}
 struct ContentView: View {
     var body: some View {
-        nameView()
-        HStack{
-            HandView(imgName: "Godzilla", tit: "Mecha Godzilla")
-            HandView(imgName: "Buddha",tit: "Buddah")
-            HandView(imgName: "V01",tit: "nu Gundam")
+        VStack {
             
-}
-        HStack{
-            HandView(imgName: "Moto",tit: "GSX-S150")
+            Text("My favorite K-POP Group")
+                .font(.title)
+                .fontWeight(.heavy)
+                .foregroundStyle(.primary)
+            TabView{
+                Group{
+                    WelcomeView()
+                        .tabItem { 
+                            Image(systemName: "person.crop.circle.dashed.circle.fill")
+                            Text("Welcome")
+                        }
+                    //Text("Page1.")
+                    //.tabItem { 
+                    //Image("")
+                    //Image(systemName: "1.lane")
+                    //Text("1")
+                    //}
+                    ScrollView{
+                        ForEach(Heat){
+                            thisHeat in           
+                            CardView(img:thisHeat.img,Option:thisHeat.opt, NameUS: thisHeat.NameUS, NameCN: thisHeat.NameCN)
+                        }
+                    }
+                    .tabItem { 
+                        //Image("")
+                        Image(systemName: "2.lane")
+                        //  Text("2")
+                    }
+                    NavigationView{
+                        List(album){albitem in
+                            //BasicImageRow(thisalbum: albitem)}
+                            NavigationLink(
+                                destination: ListDetail(thisalbum: albitem),
+                                label: {BasicImageRow(thisalbum: albitem)
+                                })
+                        }
+                            .navigationBarTitle("Album")}
+                    }
+                    .tabItem { Image(systemName: "3.lane") }
+                    TAPCardView()
+                        .tabItem { Image(systemName: "4.lane") }
+                   // SettingView()
+                    .tabItem { Image(systemName: "slider.horizontal.3") }
+                        .toolbarBackground(.black, for: .tabBar)   
+                        .toolbarBackground(.visible, for: .tabBar)
+                    //.toolbarColorScheme(.light, for:.tabBar)
+                }
+                .tint(.red)
+            }
         }
-        HStack{
-            HandView(imgName: "Zheng",tit: "Z")
-            HandView(imgName: "V02",tit:"Nu-02")
-            //HandView(imgName: "Bird",tit:"Bird")
-            
-        }
-        HStack{
-            HandView(imgName: "Wing",tit: "Wing Gundam")
-            HandView(imgName: "Eva02",tit:"Eva02")
-            HandView(imgName: "Bird",tit:"Bird")
-            
-        }
-        
     }
-}
 
-  
 ```
 </table>
