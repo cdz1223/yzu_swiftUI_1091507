@@ -2,10 +2,10 @@
 <table>
   <tr>
       <td>
-        <img src="hw4-1.jpeg">
-        <img src="hw4-2.jpeg">
-        <img src="hw4-3.jpeg">
-        <img src="hw4-4.jpeg">
+        <img src="hw4-1.jpg">
+        <img src="hw4-2.jpg">
+        <img src="hw4-3.jpg">
+        <img src="hw4-4.jpg">
       </td>
   </tr>
   
