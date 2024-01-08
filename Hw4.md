@@ -1,4 +1,4 @@
-<h1>HW4—contentView</h1> 
+
 <table>
   <tr>
       <td>
@@ -9,7 +9,7 @@
       </td>
   </tr>
   
-
+<h1>HW4—contentView</h1> 
 ```swift
   import SwiftUI
 struct Gidle :Identifiable{
