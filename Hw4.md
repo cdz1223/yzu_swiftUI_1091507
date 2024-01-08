@@ -10,8 +10,11 @@
   </tr>
   
 <h1>HW4—contentView</h1> 
+
 ```swift
-  import SwiftUI
+
+
+import SwiftUI
 struct Gidle :Identifiable{
     var id = UUID()
     var img:String
